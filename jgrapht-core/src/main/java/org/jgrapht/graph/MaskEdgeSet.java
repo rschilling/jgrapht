@@ -100,7 +100,14 @@ class MaskEdgeSet<V, E>
      */
     @Override public int size()
     {
-        return (int) edgeSet.stream().filter(e -> contains(e)).count();
+        int result = 0;
+        for (Iterator<E> i = edgeSet.iterator();i.hasNext();){
+            if (contains(i.next())){
+                result ++;
+            }
+        }
+        return result;
+        // return (int) edgeSet.stream().filter(e -> contains(e)).count();
     }
 
     private class MaskEdgeSetNextElementFunctor
