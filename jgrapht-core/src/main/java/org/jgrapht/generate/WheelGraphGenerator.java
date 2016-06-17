@@ -111,10 +111,10 @@ public class WheelGraphGenerator<V, E>
         final Collection<V> rim = new ArrayList<>();
 
         VertexFactory<V> rimVertexFactory =
-                new VertexFactory<>(){
+                new VertexFactory<V>(){
 
                     @Override
-                    public Object createVertex() {
+                    public V createVertex() {
                         V vertex = vertexFactory.createVertex();
                         rim.add(vertex);
 
