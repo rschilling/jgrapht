@@ -91,7 +91,17 @@ class MaskVertexSet<V, E>
      */
     @Override public int size()
     {
-        return (int) vertexSet.stream().filter(v -> contains(v)).count();
+        int result = 0;
+        for (Iterator<V> i = vertexSet.iterator(); i.hasNext();){
+            if (contains(i.next())){
+                result++;
+            }
+        }
+
+        return result;
+
+        // TODO: search for stream() and filter() and make sure the implementation is correct.
+        // return (int) vertexSet.stream().filter(v -> contains(v)).count();
     }
 
     private class MaskVertexSetNextElementFunctor
