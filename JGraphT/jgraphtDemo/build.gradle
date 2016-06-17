@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 3
+    compileSdkVersion 17
     buildToolsVersion "23.0.3"
 
     defaultConfig {
@@ -18,7 +18,7 @@ android {
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 }
 
