@@ -109,6 +109,20 @@ public class WheelGraphGenerator<V, E>
         // necessary since target may be initially non-empty, meaning we can't
         // rely on its vertex set after the rim is generated.
         final Collection<V> rim = new ArrayList<>();
+
+        VertexFactory<V> rimVertexFactory =
+                new VertexFactory<>(){
+
+                    @Override
+                    public Object createVertex() {
+                        V vertex = vertexFactory.createVertex();
+                        rim.add(vertex);
+
+                        return vertex;
+                    }
+                };
+
+        /*
         VertexFactory<V> rimVertexFactory =
                 () -> {
                     V vertex = vertexFactory.createVertex();
@@ -116,6 +130,7 @@ public class WheelGraphGenerator<V, E>
 
                     return vertex;
                 };
+        */
 
         RingGraphGenerator<V, E> ringGenerator =
                 new RingGraphGenerator<>(size - 1);

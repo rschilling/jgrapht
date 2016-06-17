@@ -77,8 +77,23 @@ public class PrimMinimumSpanningTree<V, E>
             PriorityQueue<E> dangling =
                     new PriorityQueue<>(
                             g.edgeSet().size(),
+                            new Comparator<E>(){
+
+                                @Override
+                                public int compare(E lop, E rop) {
+                                    return Double.valueOf(g.getEdgeWeight(lop))
+                                            .compareTo(g.getEdgeWeight(rop));
+                                }
+                            }
+                    );
+
+            /*
+            PriorityQueue<E> dangling =
+                    new PriorityQueue<>(
+                            g.edgeSet().size(),
                             (lop, rop) -> Double.valueOf(g.getEdgeWeight(lop))
                                     .compareTo(g.getEdgeWeight(rop)));
+            */
 
             dangling.addAll(g.edgesOf(root));
 

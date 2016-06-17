@@ -70,9 +70,24 @@ public class KruskalMinimumSpanningTree<V, E>
         UnionFind<V> forest = new UnionFind<>(graph.vertexSet());
         ArrayList<E> allEdges = new ArrayList<>(graph.edgeSet());
         Collections.sort(
+                allEdges,
+                new Comparator<E>(){
+
+                    @Override
+                    public int compare(E edge1, E edge2) {
+                        return Double.valueOf(graph.getEdgeWeight(edge1)).compareTo(
+                                graph.getEdgeWeight(edge2));
+                    }
+                }
+            );
+
+        /*
+        original Lambda definition:
+        Collections.sort(
             allEdges,
                 (edge1, edge2) -> Double.valueOf(graph.getEdgeWeight(edge1)).compareTo(
                     graph.getEdgeWeight(edge2)));
+        */
 
         spanningTreeCost = 0;
         edgeList = new HashSet<>();
