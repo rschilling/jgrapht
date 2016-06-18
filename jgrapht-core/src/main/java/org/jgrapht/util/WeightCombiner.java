@@ -44,37 +44,73 @@ public interface WeightCombiner
      * Sum of weights.
      */
     WeightCombiner SUM =
-            (a, b) -> a + b;
+            // (a, b) -> a + b;
+            new WeightCombiner() {
+                @Override
+                public double combine(double a, double b) {
+                    return a + b;
+                }
+            };
 
     /**
      * Multiplication of weights.
      */
     WeightCombiner MULT =
-            (a, b) -> a * b;
+            // (a, b) -> a * b;
+            new WeightCombiner() {
+                @Override
+                public double combine(double a, double b) {
+                    return a * b;
+                }
+            };
 
     /**
      * Minimum weight.
      */
     WeightCombiner MIN =
-            (a, b) -> Math.min(a, b);
+            // (a, b) -> Math.min(a, b);
+            new WeightCombiner() {
+                @Override
+                public double combine(double a, double b) {
+                    return Math.min(a, b);
+                }
+            };
 
     /**
      * Maximum weight.
      */
     WeightCombiner MAX =
-            (a, b) -> Math.max(a, b);
+            // (a, b) -> Math.max(a, b);
+            new WeightCombiner() {
+                @Override
+                public double combine(double a, double b) {
+                    return Math.max(a, b);
+                }
+            };
 
     /**
      * First weight.
      */
     WeightCombiner FIRST =
-            (a, b) -> a;
+            // (a, b) -> a;
+            new WeightCombiner() {
+                @Override
+                public double combine(double a, double b) {
+                    return a;
+                }
+            };
 
     /**
      * Second weight.
      */
     WeightCombiner SECOND =
-            (a, b) -> b;
+            // (a, b) -> b;
+            new WeightCombiner() {
+                @Override
+                public double combine(double a, double b) {
+                    return b;
+                }
+            };
 
     /**
      * Combines two weights.
