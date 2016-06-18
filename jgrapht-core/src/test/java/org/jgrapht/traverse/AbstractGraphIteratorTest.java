@@ -97,7 +97,7 @@ public abstract class AbstractGraphIteratorTest
     DirectedGraph<String, DefaultEdge> createDirectedGraph()
     {
         DirectedGraph<String, DefaultEdge> graph =
-                new DefaultDirectedWeightedGraph<>(
+                new DefaultDirectedWeightedGraph(
                         DefaultWeightedEdge.class);
 
         //

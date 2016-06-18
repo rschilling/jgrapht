@@ -45,21 +45,18 @@ import org.jgrapht.alg.interfaces.MaximumFlowAlgorithm;
 import org.jgrapht.generate.RandomGraphGenerator;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
-import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.runner.Runner;
-import org.openjdk.jmh.runner.RunnerException;
-import org.openjdk.jmh.runner.options.Options;
-import org.openjdk.jmh.runner.options.OptionsBuilder;
-import org.openjdk.jmh.runner.options.TimeValue;
+
 
 import java.util.concurrent.TimeUnit;
+
+// TODO re-enable tests that use Scope.Benchmark.
 
 public class MaximumFlowAlgorithmPerformanceTest extends TestCase {
 
     public static final int PERF_BENCHMARK_VERTICES_COUNT   = 1000;
     public static final int PERF_BENCHMARK_EDGES_COUNT      = 100000;
 
-    @State(Scope.Benchmark)
+    // @State(Scope.Benchmark)
     private static abstract class RandomGraphBenchmarkBase {
 
         public static final long SEED = 1446523573696201013l;
@@ -71,7 +68,7 @@ public class MaximumFlowAlgorithmPerformanceTest extends TestCase {
 
         abstract MaximumFlowAlgorithm<Integer, DefaultWeightedEdge> createSolver(DirectedGraph<Integer, DefaultWeightedEdge> network);
 
-        @Setup
+        // @Setup
         public void setup() {
             RandomGraphGenerator<Integer, DefaultWeightedEdge> rgg
                 = new RandomGraphGenerator<>(PERF_BENCHMARK_VERTICES_COUNT, PERF_BENCHMARK_EDGES_COUNT, SEED);
@@ -110,7 +107,7 @@ public class MaximumFlowAlgorithmPerformanceTest extends TestCase {
             sink    = (Integer) vs[vs.length - 1];
         }
 
-        @Benchmark
+        // @Benchmark
         public void run() {
             solver.buildMaximumFlow(source, sink);
         }
@@ -130,6 +127,7 @@ public class MaximumFlowAlgorithmPerformanceTest extends TestCase {
         }
     }
 
+    /*
     public void testRandomGraphBenchmark() throws RunnerException {
         Options opt = new OptionsBuilder()
             .include(".*" + EdmondsKarpMaximumFlowRandomGraphBenchmark.class.getSimpleName() + ".*")
@@ -148,4 +146,5 @@ public class MaximumFlowAlgorithmPerformanceTest extends TestCase {
 
         new Runner(opt).run();
     }
+    */
 }

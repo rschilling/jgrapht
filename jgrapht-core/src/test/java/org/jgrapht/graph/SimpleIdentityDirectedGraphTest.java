@@ -98,7 +98,7 @@ public class SimpleIdentityDirectedGraphTest
 
         @Override
         protected DirectedSpecifics<V,E> createDirectedSpecifics() {
-            return new DirectedSpecifics<>(this, new IdentityHashMap<>());
+            return new DirectedSpecifics<>(this, new IdentityHashMap());
         }
     }
 

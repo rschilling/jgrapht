@@ -57,7 +57,7 @@ public class RandomGraphGeneratorTest
                 new ArrayList<>();
         for (int i = 0; i < 3; ++i) {
             graphArray.add(
-                    new SimpleDirectedGraph<>(
+                    new SimpleDirectedGraph(
                             DefaultEdge.class));
         }
 
@@ -76,7 +76,7 @@ public class RandomGraphGeneratorTest
                 new ArrayList<>();
         for (int i = 0; i < 3; ++i) {
             graphArray.add(
-                    new ListenableUndirectedGraph<>(
+                    new ListenableUndirectedGraph(
                             DefaultEdge.class));
         }
 

@@ -1090,7 +1090,7 @@ public class VF2SubgraphIsomorphismInspectorTest
 
         VF2SubgraphIsomorphismInspector<String, Integer> vf4 =
                 new VF2SubgraphIsomorphismInspector<>(g1, g2,
-                        new AlwaysEqualComparator<>(),
+                        new AlwaysEqualComparator(),
                         new EdgeComp());
 
         Iterator<GraphMapping<String, Integer>> iter3 = vf4.getMappings();

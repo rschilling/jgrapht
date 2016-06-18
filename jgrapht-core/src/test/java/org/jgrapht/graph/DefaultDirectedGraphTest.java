@@ -66,7 +66,7 @@ public class DefaultDirectedGraphTest
         DirectedMultigraph<String, DefaultEdge> g =
                 new DirectedMultigraph<>(
                         DefaultEdge.class);
-        g.setEdgeSetFactory(new LinkedHashSetFactory<>());
+        g.setEdgeSetFactory(new LinkedHashSetFactory());
         initMultiTriangle(g);
     }
 

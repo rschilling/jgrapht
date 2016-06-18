@@ -44,15 +44,11 @@ import org.jgrapht.generate.RandomGraphGenerator;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 import org.jgrapht.graph.specifics.DirectedSpecifics;
-import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.infra.Blackhole;
-import org.openjdk.jmh.runner.Runner;
-import org.openjdk.jmh.runner.RunnerException;
-import org.openjdk.jmh.runner.options.Options;
-import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+
+// TODO re-enable this test.
 
 /**
  * Benchmark class to compare different graph implementations. The benchmark creates a graph, runs various algorithms on
@@ -68,10 +64,10 @@ public class GraphPerformanceTest extends TestCase{
     public static final long SEED = 1446523573696201013l;
     public static final int NR_GRAPHS=5; //Number of unique graphs on which the tests are repeated
 
-    @State(Scope.Benchmark)
+    // @State(Scope.Benchmark)
     private static abstract class DirectedGraphBenchmarkBase {
 
-        private Blackhole blackhole;
+        // private Blackhole blackhole;
         protected RandomGraphGenerator<Integer, DefaultWeightedEdge> rgg;
         private SimpleDirectedWeightedGraph<Integer, DefaultWeightedEdge> graph;
 
@@ -82,15 +78,16 @@ public class GraphPerformanceTest extends TestCase{
          */
         abstract SimpleDirectedWeightedGraph<Integer, DefaultWeightedEdge> constructGraph();
 
-        @Setup
+        // @Setup
         public void setup() {
-            blackhole=new Blackhole();
+
+            // blackhole=new Blackhole();
         }
 
         /**
          * Benchmark 1: graph construction
          */
-        @Benchmark
+        // @Benchmark
         public void generateGraphBenchmark(){
             for(int i=0; i<NR_GRAPHS; i++) {
                 rgg= new RandomGraphGenerator<>(PERF_BENCHMARK_VERTICES_COUNT, PERF_BENCHMARK_EDGES_COUNT, SEED+i);
@@ -103,7 +100,7 @@ public class GraphPerformanceTest extends TestCase{
         /**
          * Benchmark 2: Simulate graph usage: Create a graph, perform various algorithms, partially destroy graph
          */
-        @Benchmark
+        //@Benchmark
         public void graphPerformanceBenchmark() {
             for(int i=0; i<NR_GRAPHS; i++) {
                 rgg = new RandomGraphGenerator<>(PERF_BENCHMARK_VERTICES_COUNT, PERF_BENCHMARK_EDGES_COUNT, SEED + i);
@@ -116,13 +113,13 @@ public class GraphPerformanceTest extends TestCase{
 
                 //Run various algorithms on the graph
                 double length = this.calculateShorestPath(graph, source, sink);
-                blackhole.consume(length);
+                //blackhole.consume(length);
 
                 double maxFlow = this.calculateMaxFlow(graph, source, sink);
-                blackhole.consume(maxFlow);
+                //blackhole.consume(maxFlow);
 
                 boolean isStronglyConnected = this.isStronglyConnected(graph);
-                blackhole.consume(isStronglyConnected);
+                //blackhole.consume(isStronglyConnected);
 
                 //Destroy some random edges in the graph
                 destroyRandomEdges(graph);
@@ -201,6 +198,7 @@ public class GraphPerformanceTest extends TestCase{
         }
     }
 
+    /*
     public void testRandomGraphBenchmark() throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(".*" + MemoryEfficientDirectedGraphBenchmark.class.getSimpleName() + ".*")
@@ -219,6 +217,7 @@ public class GraphPerformanceTest extends TestCase{
 
         new Runner(opt).run();
     }
+    */
 
 
     /**

@@ -196,7 +196,7 @@ public class GenericGraphsTest
         public EquivGraph()
         {
             super(
-                    new ClassBasedEdgeFactory<>(
+                    new ClassBasedEdgeFactory(
                             DefaultEdge.class),
                 true,
                 true);
