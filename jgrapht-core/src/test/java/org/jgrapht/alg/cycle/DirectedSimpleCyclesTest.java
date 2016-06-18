@@ -78,7 +78,7 @@ public class DirectedSimpleCyclesTest
     {
         DirectedGraph<Integer, DefaultEdge> graph = new DefaultDirectedGraph<>
                 (
-                        new ClassBasedEdgeFactory<>
+                        new ClassBasedEdgeFactory
                                 (
                                         DefaultEdge.class
                                 )
@@ -104,7 +104,7 @@ public class DirectedSimpleCyclesTest
         for (int size = 1; size <= MAX_SIZE; size++) {
             graph = new DefaultDirectedGraph<>
                     (
-                            new ClassBasedEdgeFactory<>
+                            new ClassBasedEdgeFactory
                                     (
                                             DefaultEdge.class
                                     )

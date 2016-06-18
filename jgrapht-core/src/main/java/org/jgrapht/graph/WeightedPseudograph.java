@@ -72,15 +72,15 @@ public class WeightedPseudograph<V, E>
      */
     public WeightedPseudograph(Class<? extends E> edgeClass)
     {
-        this(new ClassBasedEdgeFactory<>(edgeClass));
+        this(new ClassBasedEdgeFactory(edgeClass));
     }
 
     public static <V, E> UndirectedWeightedGraphBuilderBase<V,
         E, ? extends WeightedPseudograph<V, E>, ?> builder(
         Class<? extends E> edgeClass)
     {
-        return new UndirectedWeightedGraphBuilder<>(
-                new WeightedPseudograph<>(edgeClass));
+        return new UndirectedWeightedGraphBuilder(
+                new WeightedPseudograph(edgeClass));
     }
 
     public static <V, E> UndirectedWeightedGraphBuilderBase<V,

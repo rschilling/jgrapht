@@ -74,7 +74,7 @@ public class FloydWarshallShortestPathsTest
         for (int i = 0; i < 10; i++) {
             //Generate directed graph
             SimpleDirectedGraph<Integer, DefaultWeightedEdge> directed = new SimpleDirectedGraph<>(DefaultWeightedEdge.class);
-            gen.generateGraph(directed, f, new HashMap<>());
+            gen.generateGraph(directed, f, new HashMap());
 
             // setup our shortest path measurer
             FloydWarshallShortestPaths<Integer, DefaultWeightedEdge> fw = new FloydWarshallShortestPaths<>(directed);
@@ -96,7 +96,7 @@ public class FloydWarshallShortestPathsTest
 
             //Generate Undirected graph
             SimpleGraph<Integer, DefaultWeightedEdge> undirected = new SimpleGraph<>(DefaultWeightedEdge.class);
-            gen.generateGraph(undirected, f, new HashMap<>());
+            gen.generateGraph(undirected, f, new HashMap());
 
             // setup our shortest path measurer
             fw = new FloydWarshallShortestPaths<>(

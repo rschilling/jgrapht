@@ -91,6 +91,18 @@ public class PrefetchIteratorTest
         public IterateFrom1To99()
         {
             nextSupplier =
+                    new PrefetchIterator<>(new PrefetchIterator.NextElementFunctor() {
+                        @Override
+                        public Object nextElement() throws NoSuchElementException {
+                            counter++;
+                            if (counter >= 100) {
+                                throw new NoSuchElementException();
+                            } else {
+                                return counter;
+                            }
+                        }
+                    });
+                    /*
                     new PrefetchIterator<>(
                             () -> {
                                 counter++;
@@ -100,6 +112,7 @@ public class PrefetchIteratorTest
                                     return counter;
                                 }
                             });
+                     */
         }
 
         // forwarding to nextSupplier and return its returned value

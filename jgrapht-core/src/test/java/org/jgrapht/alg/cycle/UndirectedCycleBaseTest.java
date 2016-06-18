@@ -62,7 +62,7 @@ public class UndirectedCycleBaseTest
     {
         SimpleGraph<Integer, DefaultEdge> graph = new SimpleGraph<>
                 (
-                        new ClassBasedEdgeFactory<>
+                        new ClassBasedEdgeFactory
                                 (
                                         DefaultEdge.class
                                 )
@@ -95,7 +95,7 @@ public class UndirectedCycleBaseTest
         for (int size = 1; size <= MAX_SIZE; size++) {
             graph = new SimpleGraph<>
                     (
-                            new ClassBasedEdgeFactory<>
+                            new ClassBasedEdgeFactory
                                     (
                                             DefaultEdge.class
                                     )

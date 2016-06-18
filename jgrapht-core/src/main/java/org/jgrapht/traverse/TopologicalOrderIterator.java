@@ -88,7 +88,7 @@ public class TopologicalOrderIterator<V, E>
      */
     public TopologicalOrderIterator(DirectedGraph<V, E> dg)
     {
-        this(dg, new LinkedListQueue<>());
+        this(dg, new LinkedListQueue());
     }
 
     /**
@@ -106,7 +106,7 @@ public class TopologicalOrderIterator<V, E>
      */
     public TopologicalOrderIterator(DirectedGraph<V, E> dg, Queue<V> queue)
     {
-        this(dg, queue, new HashMap<>());
+        this(dg, queue, new HashMap());
     }
 
     // NOTE: This is a hack to deal with the fact that CrossComponentIterator

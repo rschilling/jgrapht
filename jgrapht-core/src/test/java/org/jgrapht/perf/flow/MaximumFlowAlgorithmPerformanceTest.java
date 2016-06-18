@@ -37,6 +37,7 @@ package org.jgrapht.perf.flow;
 
 import junit.framework.TestCase;
 import org.jgrapht.DirectedGraph;
+import org.jgrapht.EdgeFactory;
 import org.jgrapht.VertexFactory;
 import org.jgrapht.alg.flow.EdmondsKarpMaximumFlow;
 import org.jgrapht.alg.flow.PushRelabelMaximumFlow;
@@ -76,9 +77,18 @@ public class MaximumFlowAlgorithmPerformanceTest extends TestCase {
                 = new RandomGraphGenerator<>(PERF_BENCHMARK_VERTICES_COUNT, PERF_BENCHMARK_EDGES_COUNT, SEED);
 
             SimpleDirectedWeightedGraph<Integer, DefaultWeightedEdge> network
-                = new SimpleDirectedWeightedGraph<>((sourceVertex, targetVertex) -> {
-                return new DefaultWeightedEdge();
+                    = new SimpleDirectedWeightedGraph(new EdgeFactory() {
+                @Override
+                public Object createEdge(Object sourceVertex, Object targetVertex) {
+                    return new DefaultWeightedEdge();
+                }
             });
+
+                /*
+                    = new SimpleDirectedWeightedGraph<>((sourceVertex, targetVertex) -> {
+                        return new DefaultWeightedEdge();
+                    });
+                */
 
             rgg.generateGraph(
                 network,

@@ -13,6 +13,8 @@
 package org.jgrapht.alg;
 
 import junit.framework.TestCase;
+
+import org.jgrapht.EdgeFactory;
 import org.jgrapht.WeightedGraph;
 import org.jgrapht.generate.SimpleWeightedBipartiteGraphMatrixGenerator;
 import org.jgrapht.generate.WeightedGraphGeneratorAdapter;
@@ -93,9 +95,17 @@ public class KuhnMunkresMinimalWeightBipartitePerfectMatchingTest extends TestCa
         List<? extends V> second    = secondPartition.subList(0, partitionCardinality);
 
         WeightedGraph<V, WeightedEdge> target =
+                new SimpleWeightedGraph<V, WeightedEdge>(new EdgeFactory<V, WeightedEdge>() {
+                    @Override
+                    public WeightedEdge createEdge(V sourceVertex, V targetVertex) {
+                        return WeightedEdge.make(sourceVertex, targetVertex);
+                    }
+                });
+                /*
                 new SimpleWeightedGraph<>((sourceVertex, targetVertex) -> {
                     return WeightedEdge.make(sourceVertex, targetVertex);
                 });
+                */
 
         WeightedGraphGeneratorAdapter<V, WeightedEdge, V> generator =
           new SimpleWeightedBipartiteGraphMatrixGenerator<V, WeightedEdge>()

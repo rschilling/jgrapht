@@ -79,14 +79,14 @@ public class WeightedMultigraph<V, E>
         E, ? extends WeightedMultigraph<V, E>, ?> builder(
         Class<? extends E> edgeClass)
     {
-        return new UndirectedWeightedGraphBuilder<>(
+        return new UndirectedWeightedGraphBuilder(
                 new WeightedMultigraph(edgeClass));
     }
 
     public static <V, E> UndirectedWeightedGraphBuilderBase<V,
         E, ? extends WeightedMultigraph<V, E>, ?> builder(EdgeFactory<V, E> ef)
     {
-        return new UndirectedWeightedGraphBuilder<>(
+        return new UndirectedWeightedGraphBuilder(
                 new WeightedMultigraph<>(ef));
     }
 }

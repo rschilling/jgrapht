@@ -40,6 +40,7 @@ package org.jgrapht.alg;
 
 import junit.framework.TestCase;
 import org.jgrapht.DirectedGraph;
+import org.jgrapht.EdgeFactory;
 import org.jgrapht.VertexFactory;
 import org.jgrapht.alg.interfaces.StrongConnectivityAlgorithm;
 import org.jgrapht.generate.RingGraphGenerator;
@@ -247,10 +248,17 @@ public class StrongConnectivityAlgorithmTest
     public void testStronglyConnected4(Class strongConnectivityAlgorithm)
     {
         DefaultDirectedGraph<Integer, String> graph =
-                new DefaultDirectedGraph<>(
+                new DefaultDirectedGraph<Integer, String>(new EdgeFactory<Integer, String>() {
+                    @Override
+                    public String createEdge(Integer from, Integer to) {
+                        return (from + "->" + to).intern();
+                    }
+                });
+                        /*
                         (from, to) -> {
                             return (from + "->" + to).intern();
                         });
+                        */
 
         new RingGraphGenerator<Integer, String>(3).generateGraph(
                 graph,
