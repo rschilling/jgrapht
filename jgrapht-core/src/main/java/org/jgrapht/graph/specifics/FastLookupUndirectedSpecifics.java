@@ -61,7 +61,7 @@ public class FastLookupUndirectedSpecifics<V,E>
 
     public FastLookupUndirectedSpecifics(AbstractBaseGraph<V, E> abstractBaseGraph)
     {
-        this(abstractBaseGraph, new LinkedHashMap<>());
+        this(abstractBaseGraph, new LinkedHashMap());
     }
 
     public FastLookupUndirectedSpecifics(AbstractBaseGraph<V, E> abstractBaseGraph, Map<V, UndirectedEdgeContainer<V, E>> vertexMap)
@@ -77,7 +77,7 @@ public class FastLookupUndirectedSpecifics<V,E>
     {
         if (abstractBaseGraph.containsVertex(sourceVertex)&& abstractBaseGraph.containsVertex(targetVertex)) {
             Set<E> edges = touchingVerticesToEdgeMap.get(new UnorderedVertexPair<>(sourceVertex, targetVertex));
-            return edges == null ? Collections.emptySet() : new ArrayUnenforcedSet<>(edges);
+            return edges == null ? Collections.emptySet() : new ArrayUnenforcedSet(edges);
         }else{
             return null;
         }

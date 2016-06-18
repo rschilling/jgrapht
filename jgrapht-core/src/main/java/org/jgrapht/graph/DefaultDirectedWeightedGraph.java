@@ -62,7 +62,7 @@ public class DefaultDirectedWeightedGraph<V, E>
      */
     public DefaultDirectedWeightedGraph(Class<? extends E> edgeClass)
     {
-        this(new ClassBasedEdgeFactory<>(edgeClass));
+        this(new ClassBasedEdgeFactory<V, E>(edgeClass));
     }
 
     /**
@@ -80,7 +80,7 @@ public class DefaultDirectedWeightedGraph<V, E>
         Class<? extends E> edgeClass)
     {
         return new DirectedWeightedGraphBuilder<>(
-                new DefaultDirectedWeightedGraph<>(edgeClass));
+                new DefaultDirectedWeightedGraph<V, E>(edgeClass));
     }
 
     public static <V, E> DirectedWeightedGraphBuilderBase<V,

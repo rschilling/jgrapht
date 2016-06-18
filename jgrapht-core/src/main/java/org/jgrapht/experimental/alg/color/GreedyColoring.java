@@ -78,7 +78,7 @@ public class GreedyColoring<V, E>
         int index = _neighbors.length - 1;
 
         for (int i = 0; i < _neighbors.length; i++) {
-            buckets.add(new ArrayList<>());
+            buckets.add(new ArrayList<Integer>());
             degree[i] = _neighbors[i].length;
         }
         for (int i = 0; i < _neighbors.length; i++) {

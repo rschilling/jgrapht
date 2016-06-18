@@ -257,7 +257,7 @@ class KShortestPathsIterator<V, E>
     private void encounterStartVertex()
     {
         RankingPathElementList<V, E> data =
-                new RankingPathElementList<>(
+                new RankingPathElementList(
                         this.graph,
                         this.k,
                         new RankingPathElement<>(

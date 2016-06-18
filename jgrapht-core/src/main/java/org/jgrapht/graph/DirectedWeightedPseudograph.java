@@ -60,7 +60,7 @@ public class DirectedWeightedPseudograph<V, E>
      */
     public DirectedWeightedPseudograph(Class<? extends E> edgeClass)
     {
-        this(new ClassBasedEdgeFactory<>(edgeClass));
+        this(new ClassBasedEdgeFactory<V, E>(edgeClass));
     }
 
     /**
@@ -79,7 +79,7 @@ public class DirectedWeightedPseudograph<V, E>
         Class<? extends E> edgeClass)
     {
         return new DirectedWeightedGraphBuilder<>(
-                new DirectedWeightedPseudograph<>(edgeClass));
+                new DirectedWeightedPseudograph<V, E>(edgeClass));
     }
 
     public static <V, E> DirectedWeightedGraphBuilderBase<V,

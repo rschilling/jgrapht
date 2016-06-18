@@ -67,7 +67,7 @@ public class DirectedSpecifics<V,E>
 
     public DirectedSpecifics(AbstractBaseGraph<V, E> abstractBaseGraph)
     {
-        this(abstractBaseGraph, new LinkedHashMap<>());
+        this(abstractBaseGraph, new LinkedHashMap<V, DirectedEdgeContainer<V, E>>());
     }
 
     public DirectedSpecifics(AbstractBaseGraph<V, E> abstractBaseGraph, Map<V, DirectedEdgeContainer<V, E>> vertexMap)

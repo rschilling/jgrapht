@@ -125,7 +125,7 @@ public class PatonCycleBase<V, E>
 
             // Prepare to walk the spanning tree.
             parent.put(root, root);
-            used.put(root, new HashSet<>());
+            used.put(root, new HashSet<V>());
             stack.push(root);
 
             // Do the walk. It is a BFS with

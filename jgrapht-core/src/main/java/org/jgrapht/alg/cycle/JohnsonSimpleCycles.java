@@ -188,8 +188,8 @@ public class JohnsonSimpleCycles<V, E>
         // build a graph for the SCC found
         @SuppressWarnings("unchecked")
         DirectedGraph<V, E> resultGraph =
-                new DefaultDirectedGraph<>(
-                        new ClassBasedEdgeFactory<>(
+                new DefaultDirectedGraph<V, E>(
+                        new ClassBasedEdgeFactory<V, E>(
                                 (Class<? extends E>) DefaultEdge.class));
         for (V v : minSCC) {
             resultGraph.addVertex(v);

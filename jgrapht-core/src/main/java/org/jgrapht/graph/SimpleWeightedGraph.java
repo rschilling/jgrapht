@@ -42,6 +42,8 @@ import org.jgrapht.*;
 import org.jgrapht.graph.builder.*;
 
 
+// TODO: The use of generics seems overly complicated here.
+
 /**
  * A simple weighted graph. A simple weighted graph is a simple graph for which
  * edges are assigned weights.
@@ -69,14 +71,14 @@ public class SimpleWeightedGraph<V, E>
      */
     public SimpleWeightedGraph(Class<? extends E> edgeClass)
     {
-        this(new ClassBasedEdgeFactory<>(edgeClass));
+        this(new ClassBasedEdgeFactory<V, E>(edgeClass));
     }
 
     public static <V, E> UndirectedWeightedGraphBuilderBase<V,
         E, ? extends SimpleWeightedGraph<V, E>, ?> builder(
         Class<? extends E> edgeClass)
     {
-        return new UndirectedWeightedGraphBuilder<>(
+        return new UndirectedWeightedGraphBuilder(
                 new SimpleWeightedGraph<>(edgeClass));
     }
 

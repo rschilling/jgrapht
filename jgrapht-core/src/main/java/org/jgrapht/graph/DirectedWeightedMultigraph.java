@@ -60,7 +60,7 @@ public class DirectedWeightedMultigraph<V, E>
      */
     public DirectedWeightedMultigraph(Class<? extends E> edgeClass)
     {
-        this(new ClassBasedEdgeFactory<>(edgeClass));
+        this(new ClassBasedEdgeFactory<V, E>(edgeClass));
     }
 
     /**
@@ -79,7 +79,7 @@ public class DirectedWeightedMultigraph<V, E>
         Class<? extends E> edgeClass)
     {
         return new DirectedWeightedGraphBuilder<>(
-                new DirectedWeightedMultigraph<>(edgeClass));
+                new DirectedWeightedMultigraph<V, E>(edgeClass));
     }
 
     public static <V, E> DirectedWeightedGraphBuilderBase<V,

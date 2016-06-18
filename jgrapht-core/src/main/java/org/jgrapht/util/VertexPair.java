@@ -36,7 +36,7 @@
 package org.jgrapht.util;
 
 import java.io.Serializable;
-import java.util.Objects;
+import java.util.Arrays;
 
 /**
  * Representation of a pair of vertices; to be replaced by Pair&lt;V,V&gt; if
@@ -123,7 +123,11 @@ public class VertexPair<V> implements Serializable
 
     @Override public int hashCode()
     {
-        return Objects.hash(n1, n2);
+        Object[] items = new Object[2];
+        items[0] = n1;
+        items[1] = n2;
+        return Arrays.hashCode(items);
+        // return Objects.hash(n1, n2);
     }
 }
 

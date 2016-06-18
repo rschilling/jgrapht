@@ -96,8 +96,8 @@ public class NaiveLcaFinder<V, E>
         return findLca(
             Collections.singleton(a),
             Collections.singleton(b),
-                new LinkedHashSet<>(),
-                new LinkedHashSet<>());
+                new LinkedHashSet<V>(),
+                new LinkedHashSet<V>());
     }
 
     /**

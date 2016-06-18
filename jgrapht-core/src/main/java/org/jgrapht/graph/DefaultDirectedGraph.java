@@ -63,7 +63,7 @@ public class DefaultDirectedGraph<V, E>
      */
     public DefaultDirectedGraph(Class<? extends E> edgeClass)
     {
-        this(new ClassBasedEdgeFactory<>(edgeClass));
+        this(new ClassBasedEdgeFactory<V, E>(edgeClass));
     }
 
     /**
@@ -81,7 +81,7 @@ public class DefaultDirectedGraph<V, E>
         Class<? extends E> edgeClass)
     {
         return new DirectedGraphBuilder<>(
-                new DefaultDirectedGraph<>(edgeClass));
+                new DefaultDirectedGraph<V, E>(edgeClass));
     }
 
     public static <V, E> DirectedGraphBuilderBase<V,

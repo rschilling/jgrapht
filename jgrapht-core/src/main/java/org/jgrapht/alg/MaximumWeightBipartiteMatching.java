@@ -239,7 +239,7 @@ public class MaximumWeightBipartiteMatching<V, E>
         V vertex)
     {
         Map<V, List<E>> pathsToVertices = new HashMap<>();
-        pathsToVertices.put(vertex, new ArrayList<>());
+        pathsToVertices.put(vertex, new ArrayList<E>());
         findPathsToVerticesFromVertices(
                 Collections.singletonList(vertex),
             false,

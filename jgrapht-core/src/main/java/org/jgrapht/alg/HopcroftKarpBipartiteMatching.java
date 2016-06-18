@@ -196,7 +196,7 @@ public class HopcroftKarpBipartiteMatching<V, E>
         //1. Build data structure
         Map<V, Set<V>> layeredMap = new HashMap<>();
         for (V vertex : unmatchedVertices1) {
-            layeredMap.put(vertex, new HashSet<>());
+            layeredMap.put(vertex, new HashSet<V>());
         }
 
         Set<V> oddLayer = new HashSet<>(unmatchedVertices1); //Layer L0 contains the unmatchedVertices1.
@@ -251,7 +251,7 @@ public class HopcroftKarpBipartiteMatching<V, E>
                     } else {
                         oddLayer.add(neighbor);
                         if (!layeredMap.containsKey(neighbor)) {
-                            layeredMap.put(neighbor, new HashSet<>());
+                            layeredMap.put(neighbor, new HashSet<V>());
                         }
                         layeredMap.get(neighbor).add(vertex);
                     }

@@ -68,7 +68,7 @@ public class UndirectedSpecifics<V,E>
 
     public UndirectedSpecifics(AbstractBaseGraph<V,E> abstractBaseGraph)
     {
-        this(abstractBaseGraph, new LinkedHashMap<>());
+        this(abstractBaseGraph, new LinkedHashMap());
     }
 
     public UndirectedSpecifics(AbstractBaseGraph<V,E> abstractBaseGraph,

@@ -72,14 +72,14 @@ public class SimpleGraph<V, E>
      */
     public SimpleGraph(Class<? extends E> edgeClass)
     {
-        this(new ClassBasedEdgeFactory<>(edgeClass));
+        this(new ClassBasedEdgeFactory<V, E>(edgeClass));
     }
 
     public static <V, E> UndirectedGraphBuilderBase<V,
         E, ? extends SimpleGraph<V, E>, ?> builder(Class<? extends E> edgeClass)
     {
-        return new UndirectedGraphBuilder<>(
-                new SimpleGraph<>(edgeClass));
+        return new UndirectedGraphBuilder<V, E, SimpleGraph<V, E>>(
+                new SimpleGraph<V, E>(edgeClass));
     }
 
     public static <V, E> UndirectedGraphBuilderBase<V,

@@ -57,8 +57,10 @@ public class Pair<A, B>
     public boolean equals(Object other)
     {
         return (other instanceof Pair)
-            && Objects.equals(this.first, ((Pair) other).first)
-            && Objects.equals(this.second, ((Pair) other).second);
+                && this.first.equals(((Pair) other).first)
+                && this.second.equals(((Pair) other).second);
+            // && Objects.equals(this.first, ((Pair) other).first)
+            // && Objects.equals(this.second, ((Pair) other).second);
     }
 
     public int hashCode()

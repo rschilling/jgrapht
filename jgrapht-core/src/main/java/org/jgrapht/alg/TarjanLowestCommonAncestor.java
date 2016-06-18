@@ -182,7 +182,7 @@ public class TarjanLowestCommonAncestor<V, E>
         public Set<LcaRequestResponse<V>> getOrCreate(V key)
         {
             if (!containsKey(key)) {
-                put(key, new HashSet<>());
+                put(key, new HashSet<LcaRequestResponse<V>>());
             }
             return get(key);
         }

@@ -307,7 +307,7 @@ public class FloydWarshallShortestPaths<V, E>
         int n = vertices.size();
         for (int i = 0; i < n; i++) {
             V v_i = vertices.get(i);
-            paths.put(v_i, new ArrayList<>());
+            paths.put(v_i, new ArrayList<GraphPath<V,E>>());
             for (int j = 0; j < n; j++) {
                 if (i == j) {
                     continue;
